@@ -1,0 +1,8 @@
+metamethod
+mixin
+mixins
+stringx
+tablex
+userdata
+errorf
+nicify

@@ -1,0 +1,29 @@
+name: 'Coverage'
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - 'main'
+    paths:
+      - 'src/**'
+
+jobs:
+  coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: dwenegar/setup-lua@master
+        with:
+          lua-version: '5.4'
+          luarocks-version: latest
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: build
+        run: |
+          luarocks make
+      - name: coverage
+        run: |
+          luarocks install luacov
+          luarocks install luacov-coveralls
+          luarocks test -- -c
+          luacov-coveralls -t ${{ secrets.GITHUB_TOKEN }}
