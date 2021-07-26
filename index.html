@@ -1,0 +1,507 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+<title>Reference</title>
+<link rel="stylesheet" href="ldoc_pale.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+<div id="main">
+
+
+<div id="navigation">
+<br/>
+<h1>ldk-lang</h1>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+<li><a href="#Class_Functions">Class Functions</a></li>
+</ul>
+
+<h2>Modules</h2>
+<ul class="nowrap">
+<li><strong>ldk.lang</strong></li>
+</ul>
+</div>
+
+<div id="content">
+
+<h1>Module <code>ldk.lang</code></h1>
+
+Classes and mixins.
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+<tr>
+<td class="name" nowrap><a href="#class">class(name[, super][, ...])</a></td>
+<td class="summary">Creates a new class.</td>
+</tr>
+<tr>
+<td class="name" nowrap><a href="#class_of">class_of(v)</a></td>
+<td class="summary">Returns the class of a given value.</td>
+</tr>
+<tr>
+<td class="name" nowrap><a href="#includes">includes(class, mixin)</a></td>
+<td class="summary">Returns a value indicating whether a given class includes the specified mixin.</td>
+</tr>
+<tr>
+<td class="name" nowrap><a href="#is_a">is_a(v, class)</a></td>
+<td class="summary">Returns a value indicating whether a given value is an instance of the specified class.</td>
+</tr>
+<tr>
+<td class="name" nowrap><a href="#is_class">is_class(v)</a></td>
+<td class="summary">Returns a value indicating whether a given value is a class.</td>
+</tr>
+<tr>
+<td class="name" nowrap><a href="#is_mixin">is_mixin(v)</a></td>
+<td class="summary">Checks if the given value is a mixin.</td>
+</tr>
+<tr>
+<td class="name" nowrap><a href="#is_object">is_object(v)</a></td>
+<td class="summary">Returns a value indicating whether a given value is an object.</td>
+</tr>
+<tr>
+<td class="name" nowrap><a href="#is_object_like">is_object_like(v)</a></td>
+<td class="summary">Returns a value indicating whether a given value is object-like.</td>
+</tr>
+<tr>
+<td class="name" nowrap><a href="#is_subclass_of">is_subclass_of(class, parent)</a></td>
+<td class="summary">Returns a value indicating whether a given class  has the specified parent among its ancestors.</td>
+</tr>
+<tr>
+<td class="name" nowrap><a href="#mixin">mixin(name)</a></td>
+<td class="summary">Creates a mixin with a given name.</td>
+</tr>
+<tr>
+<td class="name" nowrap><a href="#name_of">name_of(class_or_mixin)</a></td>
+<td class="summary">Returns the name of a given class or mixin.</td>
+</tr>
+<tr>
+<td class="name" nowrap><a href="#responds_to">responds_to(v, name)</a></td>
+<td class="summary">Returns a value indicating whether a given value responds to the specified method call.</td>
+</tr>
+<tr>
+<td class="name" nowrap><a href="#super">super(class)</a></td>
+<td class="summary">Returns the parent of a given class.</td>
+</tr>
+<tr>
+<td class="name" nowrap><a href="#type_of">type_of(v)</a></td>
+<td class="summary">Returns the type of a given value.</td>
+</tr>
+</table>
+<h2><a href="#Class_Functions">Class Functions</a></h2>
+<table class="function_list">
+<tr>
+<td class="name" nowrap><a href="#subclass">subclass(name[, ...])</a></td>
+<td class="summary">Creates a new subclass.</td>
+</tr>
+</table>
+<!--<br/>
+<br/> -->
+
+<h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+<dl class="function">
+<dt>
+<a name = "class"></a>
+<strong>class(name[, super][, ...])</strong>
+</dt>
+<dd>
+<p>Creates a new class. </p><p> Creates a class with the given name, parent, and mixins. Mixins are included into the new class in the order they are passed to the function.</p>
+<h3>Remarks:</h3>
+<ul>
+<li>if the parent class object defines the function <code>subclssed</code>, the function will
+ be invoked with the new class as argument.</li>
+<li>if any mixin object defines the function <code>included</code>, the function will
+ be invoked with the new class as argument.</li>
+</ul>
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">name</span>
+<span class="types"><span class="type">string</span></span>
+ the name of the new class.
+</li>
+<li><span class="parameter">super</span>
+<span class="types"><a class="type" href="index.html#class">class</a></span>
+ the parent of the new class.
+(<em>optional</em>)
+</li>
+<li><span class="parameter">...</span>
+<span class="types"><a class="type" href="index.html#mixin">mixin</a></span>
+ the mixins for the new class.
+(<em>optional</em>)
+</li>
+</ul>
+
+<h3>Returns:</h3>
+<ol>
+
+<span class="types"><a class="type" href="index.html#class">class</a></span>
+the new class.
+</ol>
+
+<h3>Raises:</h3>
+
+
+</dd>
+<dt>
+<a name = "class_of"></a>
+<strong>class_of(v)</strong>
+</dt>
+<dd>
+<p>Returns the class of a given value.</p>
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">v</span>
+ the value to get the class of.
+</li>
+</ul>
+
+<h3>Returns:</h3>
+<ol>
+
+<span class="types"><a class="type" href="index.html#class">class</a></span>
+the class of the given value, or <code>nil</code> if the value is not an object.
+</ol>
+
+
+</dd>
+<dt>
+<a name = "includes"></a>
+<strong>includes(class, mixin)</strong>
+</dt>
+<dd>
+<p>Returns a value indicating whether a given class includes the specified mixin.</p>
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">class</span>
+<span class="types"><a class="type" href="index.html#class">class</a></span>
+ the class to test.
+</li>
+<li><span class="parameter">mixin</span>
+<span class="types"><a class="type" href="index.html#mixin">mixin</a></span>
+ the mixin to test for.
+</li>
+</ul>
+
+<h3>Returns:</h3>
+<ol>
+
+<span class="types"><span class="type">boolean</span></span>
+<code>true</code> if the given class contains the specified mixin, otherwise <code>false</code>.
+</ol>
+
+
+</dd>
+<dt>
+<a name = "is_a"></a>
+<strong>is_a(v, class)</strong>
+</dt>
+<dd>
+<p>Returns a value indicating whether a given value is an instance of the specified class.</p>
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">v</span>
+ the value to test.
+</li>
+<li><span class="parameter">class</span>
+<span class="types"><a class="type" href="index.html#class">class</a></span>
+ the class to compare with the value's class.
+</li>
+</ul>
+
+<h3>Returns:</h3>
+<ol>
+
+<span class="types"><span class="type">bool</span></span>
+<code>true</code> if the value is an instance of the specified class, otherwise <code>false</code>.
+</ol>
+
+
+</dd>
+<dt>
+<a name = "is_class"></a>
+<strong>is_class(v)</strong>
+</dt>
+<dd>
+<p>Returns a value indicating whether a given value is a class.</p>
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">v</span>
+ the value to test.
+</li>
+</ul>
+
+<h3>Returns:</h3>
+<ol>
+
+<span class="types"><span class="type">bool</span></span>
+<code>true</code> if the value is a class, otherwise <code>false</code>.
+</ol>
+
+
+</dd>
+<dt>
+<a name = "is_mixin"></a>
+<strong>is_mixin(v)</strong>
+</dt>
+<dd>
+<p>Checks if the given value is a mixin.</p>
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">v</span>
+ the value to test.
+</li>
+</ul>
+
+<h3>Returns:</h3>
+<ol>
+
+<span class="types"><span class="type">bool</span></span>
+<code>true</code> if the value is a mixin, otherwise <code>false</code>.
+</ol>
+
+
+</dd>
+<dt>
+<a name = "is_object"></a>
+<strong>is_object(v)</strong>
+</dt>
+<dd>
+<p>Returns a value indicating whether a given value is an object.</p>
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">v</span>
+ the value to test.
+</li>
+</ul>
+
+<h3>Returns:</h3>
+<ol>
+
+<span class="types"><span class="type">bool</span></span>
+<code>true</code> if the value is an object, otherwise <code>false</code>.
+</ol>
+
+
+</dd>
+<dt>
+<a name = "is_object_like"></a>
+<strong>is_object_like(v)</strong>
+</dt>
+<dd>
+<p>Returns a value indicating whether a given value is object-like. </p><p> Object-like values are values supporting methods-like function calls.</p>
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">v</span>
+ the value to test.
+</li>
+</ul>
+
+<h3>Returns:</h3>
+<ol>
+
+<span class="types"><span class="type">boolean</span></span>
+<code>true</code> if the given value is object-like, otherwise <code>false</code>.
+</ol>
+
+
+</dd>
+<dt>
+<a name = "is_subclass_of"></a>
+<strong>is_subclass_of(class, parent)</strong>
+</dt>
+<dd>
+<p>Returns a value indicating whether a given class  has the specified parent among its ancestors.</p>
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">class</span>
+<span class="types"><a class="type" href="index.html#class">class</a></span>
+ the class to test.
+</li>
+<li><span class="parameter">parent</span>
+<span class="types"><a class="type" href="index.html#class">class</a></span>
+ the class to compare with the ancestors of the given class.
+</li>
+</ul>
+
+<h3>Returns:</h3>
+<ol>
+
+<span class="types"><span class="type">bool</span></span>
+<code>true</code> if the given class has the specified parent among its ancestors, otherwise <code>false</code>.
+</ol>
+
+
+</dd>
+<dt>
+<a name = "mixin"></a>
+<strong>mixin(name)</strong>
+</dt>
+<dd>
+<p>Creates a mixin with a given name. </p><p> Mixins are like classes but cannot be instantiated.</p>
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">name</span>
+<span class="types"><span class="type">string</span></span>
+ the name of the new mixin.
+</li>
+</ul>
+
+<h3>Returns:</h3>
+<ol>
+
+<span class="types"><span class="type">table</span></span>
+a new mixin.
+</ol>
+
+
+</dd>
+<dt>
+<a name = "name_of"></a>
+<strong>name_of(class_or_mixin)</strong>
+</dt>
+<dd>
+<p>Returns the name of a given class or mixin.</p>
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">class_or_mixin</span>
+<span class="types"><a class="type" href="index.html#class">class</a> or <a class="type" href="index.html#mixin">mixin</a></span>
+ the type to get the name of.
+</li>
+</ul>
+
+<h3>Returns:</h3>
+<ol>
+
+<span class="types"><span class="type">string</span></span>
+the name of the given type, or <code>nil</code> if the input argument is <code>nil</code>.
+</ol>
+
+<h3>Raises:</h3>
+
+
+</dd>
+<dt>
+<a name = "responds_to"></a>
+<strong>responds_to(v, name)</strong>
+</dt>
+<dd>
+<p>Returns a value indicating whether a given value responds to the specified method call.</p>
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">v</span>
+<span class="types"><span class="type">table</span></span>
+ the value to test.
+</li>
+<li><span class="parameter">name</span>
+<span class="types"><span class="type">string</span></span>
+ the name of the method to test for.
+</li>
+</ul>
+
+<h3>Returns:</h3>
+<ol>
+
+<span class="types"><span class="type">boolean</span></span>
+<code>true</code> if the given value responds to the specified method, otherwise <code>false</code>.
+</ol>
+
+
+</dd>
+<dt>
+<a name = "super"></a>
+<strong>super(class)</strong>
+</dt>
+<dd>
+<p>Returns the parent of a given class.</p>
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">class</span>
+<span class="types"><a class="type" href="index.html#class">class</a></span>
+ the class to get the parent class of.
+</li>
+</ul>
+
+<h3>Returns:</h3>
+<ol>
+
+<span class="types"><a class="type" href="index.html#class">class</a></span>
+the parent of the given class, otherwise <code>nil</code>.
+</ol>
+
+
+</dd>
+<dt>
+<a name = "type_of"></a>
+<strong>type_of(v)</strong>
+</dt>
+<dd>
+<p>Returns the type of a given value.</p>
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">v</span>
+ the value to get the type of.
+</li>
+</ul>
+
+<h3>Returns:</h3>
+<ol>
+
+<span class="types"><span class="type">string</span></span>
+the type of the given value.
+</ol>
+
+
+</dd>
+</dl>
+<h2 class="section-header "><a name="Class_Functions"></a>Class Functions</h2>
+
+<dl class="function">
+<dt>
+<a name = "subclass"></a>
+<strong>subclass(name[, ...])</strong>
+</dt>
+<dd>
+<p>Creates a new subclass.  Creates a class with the given name, parent, and mixins. Mixins are included into the new class in the order they are passed to the function.</p>
+<h3>Remarks:</h3>
+<ul>
+<li>if the class object defines the function <code>subclssed</code>, the function will
+ be invoked with the new class as argument.</li>
+<li>if any mixin object defines the function <code>included</code>, the function will
+ be invoked with the new class as argument.</li>
+</ul>
+<h3>Parameters:</h3>
+<ul>
+<li><span class="parameter">name</span>
+<span class="types"><span class="type">string</span></span>
+ the name of the new class.
+</li>
+<li><span class="parameter">...</span>
+<span class="types"><a class="type" href="index.html#mixin">mixin</a></span>
+ the mixins for the new class.
+(<em>optional</em>)
+</li>
+</ul>
+
+<h3>Returns:</h3>
+<ol>
+
+<span class="types"><a class="type" href="index.html#class">class</a></span>
+the new class.
+</ol>
+
+<h3>Raises:</h3>
+
+
+</dd>
+</dl>
+
+
+</div><!-- id="content" -->
+</div><!-- id="main" -->
+</div><!-- id="container" -->
+</body>
+</html>
